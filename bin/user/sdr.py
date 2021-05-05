@@ -2105,7 +2105,7 @@ class OSUVR128Packet(Packet):
         pkt['usUnits'] = weewx.METRIC
         pkt['house_code'] = obj.get('id')
         pkt['uv_index'] = Packet.get_float(obj, 'uv')
-        pkt['battery'] = 0 if obj.get('battery') == 'OK' else 1
+        pkt['battery'] = 0 if obj.get('battery_ok') == 1 else 1
         return OS.insert_ids(pkt, OSUVR128Packet.__name__)
 
 
